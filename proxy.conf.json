@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "http://api.wisey.app",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
