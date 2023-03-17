@@ -1,17 +1,25 @@
 <ng-container *ngIf="courses$ | async as courses">
-  <div *ngFor="let course of courses | slice : -10; let i = index">
-    <h2>( {{ i + 1 }} ) Title {{ course.title }}</h2>
-    <img
-      src="{{ course.previewImageLink + '/cover.webp' }}"
-      alt="image of {{ course.title }}"
-    />
-    <div>Count of lessons {{ course.lessonsCount }}</div>
-    <div>Rating {{ course.rating }}</div>
-    <div>Skills</div>
-    <ul *ngFor="let skill of course.meta.skills">
-      <li>{{ skill }}</li>
-    </ul>
-    <br />
-    <br />
+  <div class="container">
+    <div class="container-courses">
+      <app-course *ngFor="let course of courses" [course]="course"></app-course>
+    </div>
+    <div class="container-button">
+      <button
+        mat-button
+        color="primary"
+        (click)="prevPage()"
+        [disabled]="!hasPreviousData"
+      >
+        prevPage
+      </button>
+      <button
+        mat-button
+        color="primary"
+        (click)="nextPage()"
+        [disabled]="!hasNextData"
+      >
+        nextPage
+      </button>
+    </div>
   </div>
 </ng-container>

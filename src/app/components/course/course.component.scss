@@ -1,0 +1,40 @@
+:host {
+  max-width: 300px;
+}
+
+mat-card {
+  margin: 10px 5px;
+  height: 100%;
+}
+
+mat-card-header {
+  color: whitesmoke;
+  border-radius: 5px;
+  background-color: #00a698;
+}
+
+mat-card-title {
+  width: 100%;
+  text-align: center;
+  min-height: 70px;
+}
+
+mat-card-subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  height: 150px;
+  margin: 10px 5px;
+  border-radius: 5px;
+}
+
+mat-card-content ul {
+  list-style: circle;
+  margin-left: 10px;
+}
+
+mat-card-content li {
+  text-align: left;
+}

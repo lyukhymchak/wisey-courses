@@ -13,7 +13,7 @@ export class CoursesService {
   public getCourses(): Observable<Course[]> {
     return this.http
       .get<Courses>(`/core/preview-courses`)
-      .pipe(map((data: Courses) => data.courses));
+      .pipe(map((data: Courses) => data.courses.reverse()));
   }
 
   public getCourseById(courseId: string): Observable<Course> {
