@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CoursesComponent } from './components/courses/courses.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { CourseComponent } from './components/course/course.component';
 import { MatButtonModule } from '@angular/material/button';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
     CoursesComponent,
     CourseComponent,
     CourseDetailsComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,11 +31,17 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     },
   ],

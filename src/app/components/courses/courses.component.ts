@@ -8,6 +8,7 @@ import {
 } from 'rxjs';
 import { Course } from 'src/app/interfaces/course.interface';
 import { CoursesService } from 'src/app/services/courses.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-courses',
@@ -23,9 +24,13 @@ export class CoursesComponent implements OnInit {
   public hasPreviousData: boolean = false;
   public hasNextData: boolean = true;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(
+    private coursesService: CoursesService,
+    private loaderService: LoaderService
+  ) {}
 
   ngOnInit(): void {
+    this.loaderService.show();
     this.courses$ = combineLatest([this.page$, this.itemsPerPage$]).pipe(
       switchMap(([page, itemsPerPage]) => {
         const startIndex = (page - 1) * itemsPerPage;
@@ -39,15 +44,16 @@ export class CoursesComponent implements OnInit {
         );
       })
     );
+    this.loaderService.hide();
   }
 
-  prevPage() {
+  public prevPage() {
     if (this.page$.value > 1) {
       this.page$.next(this.page$.value - 1);
     }
   }
 
-  nextPage() {
+  public nextPage() {
     this.page$.next(this.page$.value + 1);
   }
 }
