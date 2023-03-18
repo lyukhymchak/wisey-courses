@@ -8,21 +8,15 @@
 .container-courses {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
+  gap: 20px;
 }
 
 .container-button {
   padding: 10px 0;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .container-courses {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .container-courses {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

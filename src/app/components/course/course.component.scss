@@ -1,5 +1,6 @@
 :host {
-  max-width: 300px;
+  width: auto;
+  max-width: 350px;
 }
 
 mat-card {
@@ -8,7 +9,9 @@ mat-card {
 }
 
 mat-card-header {
-  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 5px;
   background-color: #00a698;
 }
@@ -37,4 +40,13 @@ mat-card-content ul {
 
 mat-card-content li {
   text-align: left;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 1px 1px 2px red, 0 0 1em #00a698, 0 0 0.2em #00a698;
 }

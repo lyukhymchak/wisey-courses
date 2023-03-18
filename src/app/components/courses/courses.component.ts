@@ -4,7 +4,6 @@ import {
   Observable,
   switchMap,
   map,
-  tap,
   combineLatest,
 } from 'rxjs';
 import { Course } from 'src/app/interfaces/course.interface';

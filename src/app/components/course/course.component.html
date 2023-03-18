@@ -1,6 +1,8 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> {{ course.title }}</mat-card-title>
+    <mat-card-title>
+      <a routerLink="/{{ course.id }}">{{ course.title }}</a></mat-card-title
+    >
     <mat-card-subtitle>
       <div>Rating {{ course.rating }}</div>
       <div>Count of lessons: {{ course.lessonsCount }}</div>
@@ -14,8 +16,10 @@
   <mat-card-content>
     <ng-container *ngIf="course.meta.skills !== undefined">
       <div>Skills</div>
-      <ul *ngFor="let skill of course.meta.skills">
-        <li>{{ skill }}</li>
+      <ul>
+        <li *ngFor="let skill of course.meta.skills">
+          {{ skill }}
+        </li>
       </ul>
     </ng-container>
   </mat-card-content>
