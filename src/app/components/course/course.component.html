@@ -4,7 +4,12 @@
       <a routerLink="/{{ course.id }}">{{ course.title }}</a></mat-card-title
     >
     <mat-card-subtitle>
-      <div>Rating {{ course.rating }}</div>
+      <star-rating
+        [starType]="'svg'"
+        [rating]="course.rating"
+        [showHalfStars]="true"
+        [readOnly]="true"
+      ></star-rating>
       <div>Count of lessons: {{ course.lessonsCount }}</div>
     </mat-card-subtitle>
   </mat-card-header>

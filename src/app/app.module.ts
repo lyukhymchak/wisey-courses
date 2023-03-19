@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
-
+import { StarRatingModule } from 'angular-star-rating';
 import { CoursesComponent } from './components/courses/courses.component';
 import { CourseComponent } from './components/course/course.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
@@ -38,6 +38,7 @@ import { LessonOrderPipe } from './pipes/lesson-order.pipe';
     MatCardModule,
     MatProgressSpinnerModule,
     MatExpansionModule,
+    StarRatingModule.forRoot(),
   ],
   providers: [
     {
