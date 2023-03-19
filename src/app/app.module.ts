@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { CoursesComponent } from './components/courses/courses.component';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
@@ -15,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LessonOrderPipe } from './pipes/lesson-order.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     CourseComponent,
     CourseDetailsComponent,
     LoaderComponent,
+    LessonOrderPipe,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
   ],
   providers: [
     {

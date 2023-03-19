@@ -11,16 +11,22 @@
 
     <mat-card-content>
       <h2>Lessons</h2>
-      <ol>
-        <li *ngFor="let lesson of course.lessons">
-          <h3>{{ lesson.title }}</h3>
-          <img
-            mat-card-image
-            src="{{ lesson.previewImageLink }}/lesson-{{ lesson.order }}.webp "
-            alt="image of {{ lesson.title }}"
-          />
-        </li>
-      </ol>
+      <mat-accordion>
+        <mat-expansion-panel
+          *ngFor="let lesson of course.lessons | lessonOrder; let i = index"
+          [expanded]="i === expandedIndex"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> Lesson {{ lesson.order }} </mat-panel-title>
+            <mat-panel-description>
+              {{ lesson.title }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p *ngIf="lesson.status === lessonStatus.Locked">
+            This lesson is currently locked.
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-card-content>
   </mat-card>
 </ng-container>
