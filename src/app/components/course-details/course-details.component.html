@@ -22,9 +22,19 @@
               {{ lesson.title }}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <p *ngIf="lesson.status === lessonStatus.Locked">
-            This lesson is currently locked.
-          </p>
+          <ng-container
+            *ngIf="lesson.status === lessonStatus.Locked; else showVideo"
+          >
+            <p>This lesson is currently locked.</p>
+          </ng-container>
+          <ng-template #showVideo>
+            <ng-container *ngIf="lesson.type === 'video'; else noVideoMessage">
+              <app-video [lesson]="lesson"></app-video>
+            </ng-container>
+            <ng-template #noVideoMessage>
+              <p>No video lesson, only article</p>
+            </ng-template>
+          </ng-template>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-card-content>

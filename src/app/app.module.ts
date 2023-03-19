@@ -8,14 +8,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 import { CoursesComponent } from './components/courses/courses.component';
-import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { CourseComponent } from './components/course/course.component';
-import { MatButtonModule } from '@angular/material/button';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
+import { VideoComponent } from './components/video/video.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { LessonOrderPipe } from './pipes/lesson-order.pipe';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { LessonOrderPipe } from './pipes/lesson-order.pipe';
     CourseDetailsComponent,
     LoaderComponent,
     LessonOrderPipe,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
